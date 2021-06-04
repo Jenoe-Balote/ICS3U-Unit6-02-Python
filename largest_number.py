@@ -1,33 +1,43 @@
 #!/usr/bin/env python3
 
 # Created by: Jenoe Balote
-# Created on June 2021
-# This program finds the largest of 10 random numbers
+# Created on: June 2021
+# This program determines the largets of 10 numbers
 
 import random
 
 
+def determine_largest(numbers):
+    # This function determines the largest number
+    for counter in range(len(numbers)):
+        if counter == 0:
+            largest = numbers[counter]
+        else:
+            if numbers[counter] > largest:
+                largest = numbers[counter]
+
+    return largest
+
+
 def main():
-    # this function determines the largest number
+    # This function generates the random numbers
 
     numbers = []
 
-    # process and output
+    # Process
     print("Generating numbers...")
     print("")
-    for loop_counter in range(0, 10):
-        number_created = random.randint(1, 100)
-        numbers.append(number_created)
-    largest = 0
-    for loop_counter in range(len(numbers)):
-        print("Number {0} is {1}.".format(
-            loop_counter + 1, numbers[loop_counter]))
-        if loop_counter == 0:
-            largest = numbers[loop_counter]
-        else:
-            if numbers[loop_counter] > largest:
-                largest = numbers[loop_counter]
-    print("\nThe largest number is: {}.".format(largest))
+    for loop_counter in range(1, 10):
+        generated_number = random.randint(1, 100)
+        print("Random number {0} is: {1}".format(loop_counter,
+                                                 generated_number))
+        numbers.append(generated_number)
+
+    # Call functions
+    number = determine_largest(numbers)
+
+    # Output
+    print("\nThe largest number is: {}".format(number))
     print("\nDone.")
 
 
